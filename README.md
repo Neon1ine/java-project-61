@@ -6,3 +6,6 @@
 
 recording of even game:
 https://asciinema.org/a/s2kWq1DDIcidOcT0CvrI9Szzs
+
+recording of calculator game:
+https://asciinema.org/a/6eFRQB4PJXYUsmZWZj8DLoB6G
