@@ -46,20 +46,24 @@ public class Calc {
             }
         }
 
+        return String.valueOf(findOperationAnswer(first, second, sign));
+    }
+
+    private static int findOperationAnswer(int a, int b, char sign) {
         int result = 0;
         switch ((int) sign) {
             case 42:
-                result = first * second;
+                result = a * b;
                 break;
             case 43:
-                result = first + second;
+                result = a + b;
                 break;
             case 45:
-                result = first - second;
+                result = a - b;
                 break;
             default:
                 System.out.println("Error in calculateAnswer: wrong operation - " + (int) sign);
         }
-        return String.valueOf(result);
+        return result;
     }
 }

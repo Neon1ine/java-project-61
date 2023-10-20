@@ -13,19 +13,26 @@ public class Engine {
         boolean isCorrect;
         for (int level = 1; level <= LEVELS_TO_BEAT_THE_GAME; level++) {
             isCorrect = oneRoundOfGame(gameId, level);
-            if (level == LEVELS_TO_BEAT_THE_GAME && isCorrect) {
-                StringBuffer output = new StringBuffer();
-                output.append("Congratulations ").append(username).append("!");
-                System.out.println(output);
+            if (!isCorrect) {
+                endgame(username, false);
                 break;
             }
-            if (!isCorrect) {
-                StringBuffer output = new StringBuffer();
-                output.append("Let's try again, ").append(username).append("!");
-                System.out.println(output);
+            if (level == LEVELS_TO_BEAT_THE_GAME) {
+                endgame(username, true);
                 break;
             }
         }
+    }
+
+    private static void endgame(String username, boolean isWin) {
+        StringBuffer output = new StringBuffer();
+        if (isWin) {
+            output.append("Congratulations ");
+        } else {
+            output.append("Let's try again, ");
+        }
+        output.append(username).append("!");
+        System.out.println(output);
     }
 
     private static boolean oneRoundOfGame(int gameId, int level) {
