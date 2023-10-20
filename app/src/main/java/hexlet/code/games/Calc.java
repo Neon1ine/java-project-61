@@ -32,21 +32,24 @@ public class Calc {
     }
 
     public static String calculateAnswer(String question) {
-        int first = 0;
-        int second = 0;
+        int a = 0;
+        int b = 0;
         char sign = 0;
+
         for (int i = 0; i < question.length(); i++) {
             char ch = question.charAt(i);
-            if (ch < 58 && ch > 47 && i < 2) {
-                first = first * 10 + ch - 48;
+            if (Character.isDigit(ch)) {
+                if (i < 2) {
+                    a = a * 10 + Character.getNumericValue(ch);
+                } else {
+                    b = b * 10 + Character.getNumericValue(ch);
+                }
             } else if (ch == 42 || ch == 43 || ch == 45) {
                 sign = ch;
-            } else if (ch < 58 && ch > 47 && i > 3) {
-                second = second * 10 + ch - 48;
             }
         }
 
-        return String.valueOf(findOperationAnswer(first, second, sign));
+        return String.valueOf(findOperationAnswer(a, b, sign));
     }
 
     private static int findOperationAnswer(int a, int b, char sign) {
