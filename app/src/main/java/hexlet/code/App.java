@@ -8,6 +8,7 @@ import hexlet.code.games.Progression;
 import java.util.Scanner;
 
 public class App {
+    protected static String username;
     public static void main(String[] args) {
         drawMenu();
     }
@@ -32,19 +33,19 @@ public class App {
     }
 
     private static void setupGameStart(int choice) {
-        String username = Cli.greeting();
+        username = Cli.greeting();
         switch (choice) {
             case 2:
-                Even.startEvenGame(username);
+                Even.startEvenGame();
                 break;
             case 3:
-                Calc.startCalcGame(username);
+                Calc.startCalcGame();
                 break;
             case 4:
-                GCD.startGCDGame(username);
+                GCD.startGCDGame();
                 break;
             case 5:
-                Progression.startProgressionGame(username);
+                Progression.startProgressionGame();
                 break;
             default:
                 System.out.println("Error in setupGameStart: choice " + choice);

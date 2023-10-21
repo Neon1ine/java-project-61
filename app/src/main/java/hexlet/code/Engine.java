@@ -9,38 +9,38 @@ import java.util.Scanner;
 
 public class Engine {
     private static final int LEVELS_TO_BEAT_THE_GAME = 3;
-    public static final int RANDOM_GENERATOR_RANGE = 100;
+    private static final int RANDOM_GENERATOR_RANGE = 100;
 
-    public static void startGame(int gameId, String username) {
+    public static void startGame(int gameId) {
         boolean isCorrect;
         for (int level = 1; level <= LEVELS_TO_BEAT_THE_GAME; level++) {
             isCorrect = oneRoundOfGame(gameId, level);
             if (!isCorrect) {
-                endgame(username, false);
+                endOfAGame(false);
                 break;
             }
             if (level == LEVELS_TO_BEAT_THE_GAME) {
-                endgame(username, true);
+                endOfAGame(true);
                 break;
             }
         }
     }
 
-    private static void endgame(String username, boolean isWin) {
+    private static void endOfAGame(boolean isWin) {
         StringBuilder output = new StringBuilder();
         if (isWin) {
             output.append("Congratulations ");
         } else {
             output.append("Let's try again, ");
         }
-        output.append(username).append("!");
+        output.append(App.username).append("!");
         System.out.println(output);
     }
 
     private static boolean oneRoundOfGame(int gameId, int level) {
         String question = createQuestion(gameId);
         String userAnswer = askUserForAnswer(question);
-        String correctAnswer = defineCorrectAnswer(gameId, question);
+        String correctAnswer = defineCorrectAnswer(gameId);
         if (userAnswer.equals(correctAnswer)) {
             if (level < LEVELS_TO_BEAT_THE_GAME) {
                 System.out.println("Correct!");
@@ -58,11 +58,11 @@ public class Engine {
     private static String createQuestion(int gameId) {
         switch (gameId) {
             case 2:
-                return String.valueOf(generateRandomNumber());
+                return Even.generateRandomNumberAsQuestion();
             case 3:
                 return Calc.generateRandomOperation();
             case 4:
-                return generateRandomNumber() + " " + generateRandomNumber();
+                return GCD.generate2Numbers();
             case 5:
                 return Progression.generateProgression();
             default:
@@ -87,37 +87,20 @@ public class Engine {
         return scanner.nextLine();
     }
 
-    private static String defineCorrectAnswer(int gameId, String question) {
+    private static String defineCorrectAnswer(int gameId) {
         switch (gameId) {
             case 2:
-                return Even.findIsEven(question);
+                return Even.getIsEven();
             case 3:
-                return Calc.findOperandsAndSign(question);
+                return Calc.getAnswer();
             case 4:
-                return GCD.findGCD(question);
+                return GCD.findGCD();
             case 5:
-                return Progression.findMissingNum();
+                return Progression.getMissingNumber();
             default:
                 System.out.println("Error in defineCorrectAnswer: wrong gameId - " + gameId);
                 return null;
         }
     }
 
-    public static int findOperand(String question, boolean isFirst) {
-        int a = 0;
-        int b = 0;
-
-        for (int i = 0; i < question.length(); i++) {
-            char ch = question.charAt(i);
-            if (Character.isDigit(ch)) {
-                if (i < 2) {
-                    a = a * 10 + Character.getNumericValue(ch);
-                } else {
-                    b = b * 10 + Character.getNumericValue(ch);
-                }
-            }
-        }
-
-        return isFirst ? a : b;
-    }
 }

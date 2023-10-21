@@ -9,9 +9,9 @@ public class Progression {
     private static final int PROGRESSION_STEP_MIN_VALUE = 2;
     private static int missingNumber;
 
-    public static void startProgressionGame(String username) {
+    public static void startProgressionGame() {
         System.out.println("What number is missing in the progression?");
-        Engine.startGame(5, username);
+        Engine.startGame(5);
     }
 
     public static String generateProgression() {
@@ -41,7 +41,7 @@ public class Progression {
         return String.valueOf(output);
     }
 
-    public static String findMissingNum() {
+    public static String getMissingNumber() {
         return String.valueOf(missingNumber);
     }
 }

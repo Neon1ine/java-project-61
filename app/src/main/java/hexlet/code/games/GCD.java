@@ -3,23 +3,28 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 public class GCD {
-    public static void startGCDGame(String username) {
+    private static int first;
+    private static int second;
+    public static void startGCDGame() {
         System.out.println("Find the greatest common divisor of given numbers.");
-        Engine.startGame(4, username);
+        Engine.startGame(4);
     }
 
-    public static String findGCD(String question) {
-        int a = Engine.findOperand(question, true);
-        int b = Engine.findOperand(question, false);
-        while (a != b) {
-            if (a > b) {
-                int temp = a;
-                a = b;
-                b = temp;
+    public static String findGCD() {
+        while (first != second) {
+            if (first > second) {
+                int temp = first;
+                first = second;
+                second = temp;
             }
-            b -= a;
+            second -= first;
         }
+        return String.valueOf(first);
+    }
 
-        return String.valueOf(a);
+    public static String generate2Numbers() {
+        first = Engine.generateRandomNumber();
+        second = Engine.generateRandomNumber();
+        return first + " " + second;
     }
 }
