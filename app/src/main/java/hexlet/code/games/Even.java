@@ -8,7 +8,7 @@ public class Even {
         Engine.startGame(2, username);
     }
 
-    public static String findAnswer(String question) {
+    public static String findIsEven(String question) {
         int number = Integer.parseInt(question);
         return (number % 2 == 0) ? "yes" : "no";
     }

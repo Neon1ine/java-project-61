@@ -2,6 +2,7 @@ package hexlet.code;
 
 import hexlet.code.games.Even;
 import hexlet.code.games.Calc;
+import hexlet.code.games.GCD;
 
 import java.util.Scanner;
 
@@ -16,7 +17,7 @@ public class App {
             case 1:
                 Cli.greeting();
                 break;
-            case 2, 3:
+            case 2, 3, 4:
                 setupGameStart(userChoice);
                 break;
             case 0:
@@ -31,10 +32,19 @@ public class App {
 
     private static void setupGameStart(int choice) {
         String username = Cli.greeting();
-        if (choice == 2) {
-            Even.startEvenGame(username);
-        } else {
-            Calc.startCalcGame(username);
+        switch (choice) {
+            case 2:
+                Even.startEvenGame(username);
+                break;
+            case 3:
+                Calc.startCalcGame(username);
+                break;
+            case 4:
+                GCD.startGCDGame(username);
+                break;
+            default:
+                System.out.println("Error in setupGameStart: choice " + choice);
+                break;
         }
     }
 
@@ -44,6 +54,7 @@ public class App {
                 1 - Greet
                 2 - Even
                 3 - Calc
+                4 - GCD
                 0 - Exit
                 Your choice:\s""");
         Scanner scanner = new Scanner(System.in);

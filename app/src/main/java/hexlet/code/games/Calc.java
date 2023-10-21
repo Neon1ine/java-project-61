@@ -31,25 +31,22 @@ public class Calc {
         return String.valueOf(output);
     }
 
-    public static String calculateAnswer(String question) {
-        int a = 0;
-        int b = 0;
-        char sign = 0;
-
-        for (int i = 0; i < question.length(); i++) {
-            char ch = question.charAt(i);
-            if (Character.isDigit(ch)) {
-                if (i < 2) {
-                    a = a * 10 + Character.getNumericValue(ch);
-                } else {
-                    b = b * 10 + Character.getNumericValue(ch);
-                }
-            } else if (ch == 42 || ch == 43 || ch == 45) {
-                sign = ch;
-            }
-        }
+    public static String findOperandsAndSign(String question) {
+        int a = Engine.findOperand(question, true);
+        int b = Engine.findOperand(question, false);
+        char sign = findSymbolInOperation(question);
 
         return String.valueOf(findOperationAnswer(a, b, sign));
+    }
+
+    private static char findSymbolInOperation(String question) {
+        for (int i = 2; i < question.length() - 2; i++) {
+            char ch = question.charAt(i);
+            if (ch == 42 || ch == 43 || ch == 45) {
+                return ch;
+            }
+        }
+        return 0;
     }
 
     private static int findOperationAnswer(int a, int b, char sign) {
@@ -65,7 +62,7 @@ public class Calc {
                 result = a - b;
                 break;
             default:
-                System.out.println("Error in calculateAnswer: wrong operation - " + (int) sign);
+                System.out.println("Error in findOperationAnswer: wrong operation - " + (int) sign);
         }
         return result;
     }

@@ -2,6 +2,7 @@ package hexlet.code;
 
 import hexlet.code.games.Even;
 import hexlet.code.games.Calc;
+import hexlet.code.games.GCD;
 
 import java.util.Scanner;
 
@@ -59,6 +60,8 @@ public class Engine {
                 return generateRandomNumber();
             case 3:
                 return Calc.generateRandomOperation();
+            case 4:
+                return generateRandomNumber() + " " + generateRandomNumber();
             default:
                 System.out.println("Error in defineQuestion: wrong gameId - " + gameId);
                 return null;
@@ -80,12 +83,32 @@ public class Engine {
     private static String defineCorrectAnswer(int gameId, String question) {
         switch (gameId) {
             case 2:
-                return Even.findAnswer(question);
+                return Even.findIsEven(question);
             case 3:
-                return Calc.calculateAnswer(question);
+                return Calc.findOperandsAndSign(question);
+            case 4:
+                return GCD.findGCD(question);
             default:
                 System.out.println("Error in defineCorrectAnswer: wrong gameId - " + gameId);
                 return null;
         }
+    }
+
+    public static int findOperand(String question, boolean isFirst) {
+        int a = 0;
+        int b = 0;
+
+        for (int i = 0; i < question.length(); i++) {
+            char ch = question.charAt(i);
+            if (Character.isDigit(ch)) {
+                if (i < 2) {
+                    a = a * 10 + Character.getNumericValue(ch);
+                } else {
+                    b = b * 10 + Character.getNumericValue(ch);
+                }
+            }
+        }
+
+        return isFirst ? a : b;
     }
 }
