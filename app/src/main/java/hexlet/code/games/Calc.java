@@ -5,6 +5,7 @@ import hexlet.code.Cli;
 import hexlet.code.Engine;
 
 public class Calc {
+    private static final int THREE_OPERATIONS = 3;
     private static String sign;
     private static int answer;
 
@@ -15,7 +16,7 @@ public class Calc {
     }
 
     public static String generateRandomOperation() {
-        int operationIndex = (int) (Math.random() * 3);
+        int operationIndex = (int) (Math.random() * THREE_OPERATIONS);
         int first = Engine.generateRandomNumber();
         int second = Engine.generateRandomNumber();
         StringBuilder output = new StringBuilder();
