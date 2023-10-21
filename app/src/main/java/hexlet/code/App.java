@@ -3,6 +3,7 @@ package hexlet.code;
 import hexlet.code.games.Even;
 import hexlet.code.games.Calc;
 import hexlet.code.games.GCD;
+import hexlet.code.games.Progression;
 
 import java.util.Scanner;
 
@@ -17,7 +18,7 @@ public class App {
             case 1:
                 Cli.greeting();
                 break;
-            case 2, 3, 4:
+            case 2, 3, 4, 5:
                 setupGameStart(userChoice);
                 break;
             case 0:
@@ -42,6 +43,9 @@ public class App {
             case 4:
                 GCD.startGCDGame(username);
                 break;
+            case 5:
+                Progression.startProgressionGame(username);
+                break;
             default:
                 System.out.println("Error in setupGameStart: choice " + choice);
                 break;
@@ -55,6 +59,7 @@ public class App {
                 2 - Even
                 3 - Calc
                 4 - GCD
+                5 - Progression
                 0 - Exit
                 Your choice:\s""");
         Scanner scanner = new Scanner(System.in);

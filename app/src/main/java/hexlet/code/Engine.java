@@ -3,12 +3,13 @@ package hexlet.code;
 import hexlet.code.games.Even;
 import hexlet.code.games.Calc;
 import hexlet.code.games.GCD;
+import hexlet.code.games.Progression;
 
 import java.util.Scanner;
 
 public class Engine {
     private static final int LEVELS_TO_BEAT_THE_GAME = 3;
-    private static final int RANDOM_GENERATOR_RANGE = 100;
+    public static final int RANDOM_GENERATOR_RANGE = 100;
 
     public static void startGame(int gameId, String username) {
         boolean isCorrect;
@@ -26,7 +27,7 @@ public class Engine {
     }
 
     private static void endgame(String username, boolean isWin) {
-        StringBuffer output = new StringBuffer();
+        StringBuilder output = new StringBuilder();
         if (isWin) {
             output.append("Congratulations ");
         } else {
@@ -46,7 +47,7 @@ public class Engine {
             }
             return true;
         } else {
-            StringBuffer output = new StringBuffer();
+            StringBuilder output = new StringBuilder();
             output.append("'").append(userAnswer).append("'  is wrong answer ;(. Correct answer was '")
                     .append(correctAnswer).append("'");
             System.out.println(output);
@@ -57,11 +58,13 @@ public class Engine {
     private static String createQuestion(int gameId) {
         switch (gameId) {
             case 2:
-                return generateRandomNumber();
+                return String.valueOf(generateRandomNumber());
             case 3:
                 return Calc.generateRandomOperation();
             case 4:
                 return generateRandomNumber() + " " + generateRandomNumber();
+            case 5:
+                return Progression.generateProgression();
             default:
                 System.out.println("Error in defineQuestion: wrong gameId - " + gameId);
                 return null;
@@ -69,8 +72,12 @@ public class Engine {
         }
     }
 
-    public static String generateRandomNumber() {
-        return String.valueOf((int) (Math.random() * RANDOM_GENERATOR_RANGE));
+    public static int generateRandomNumberInRange(int first, int last) {
+        return (int) (first + Math.random() * last);
+    }
+
+    public static int generateRandomNumber() {
+        return (int) (Math.random() * RANDOM_GENERATOR_RANGE);
     }
 
     private static String askUserForAnswer(String question) {
@@ -88,6 +95,8 @@ public class Engine {
                 return Calc.findOperandsAndSign(question);
             case 4:
                 return GCD.findGCD(question);
+            case 5:
+                return Progression.findMissingNum();
             default:
                 System.out.println("Error in defineCorrectAnswer: wrong gameId - " + gameId);
                 return null;
