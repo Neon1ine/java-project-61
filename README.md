@@ -13,3 +13,5 @@ https://asciinema.org/a/6eFRQB4PJXYUsmZWZj8DLoB6G
 recording of GCD game:
 https://asciinema.org/a/ifcH0hoexH7l28Mcr8ZA8wbjU
 
+recording of progression game:
+https://asciinema.org/a/A6QJanjjnAgViQ2xarCXQ21va
