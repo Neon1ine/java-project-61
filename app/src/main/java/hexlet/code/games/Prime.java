@@ -6,7 +6,7 @@ public class Prime {
     private static int number;
     private static final int PRIME_NUMBER_RANGE = 20;
     public static void startPrimeGame() {
-        System.out.println("Answer 'yes' if the number is prime. Otherwise answer 'no'.");
+        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
         Engine.startGame(6);
     }
 
