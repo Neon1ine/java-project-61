@@ -1,5 +1,7 @@
 package hexlet.code.games;
 
+import hexlet.code.App;
+import hexlet.code.Cli;
 import hexlet.code.Engine;
 
 public class Calc {
@@ -7,8 +9,9 @@ public class Calc {
     private static int answer;
 
     public static void startCalcGame() {
+        Cli.greeting();
         System.out.println("What is the result of the expression?");
-        Engine.startGame(3);
+        Engine.startGame(App.THIRD_OPTION);
     }
 
     public static String generateRandomOperation() {
@@ -18,15 +21,15 @@ public class Calc {
         StringBuilder output = new StringBuilder();
         output.append(first).append(" ");
         switch (operationIndex) {
-            case 0:
+            case App.ZERO_OPTION:
                 sign = "*";
                 answer = first * second;
                 break;
-            case 1:
+            case App.FIRST_OPTION:
                 sign = "+";
                 answer = first + second;
                 break;
-            case 2:
+            case App.SECOND_OPTION:
                 sign = "-";
                 answer = first - second;
                 break;

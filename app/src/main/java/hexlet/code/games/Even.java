@@ -1,12 +1,15 @@
 package hexlet.code.games;
 
+import hexlet.code.App;
+import hexlet.code.Cli;
 import hexlet.code.Engine;
 
 public class Even {
     private static int number;
     public static void startEvenGame() {
+        Cli.greeting();
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
-        Engine.startGame(2);
+        Engine.startGame(App.SECOND_OPTION);
     }
 
     public static String isEven() {

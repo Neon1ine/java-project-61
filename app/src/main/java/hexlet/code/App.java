@@ -1,11 +1,21 @@
 package hexlet.code;
 
-import hexlet.code.games.*;
+import hexlet.code.games.Even;
+import hexlet.code.games.Calc;
+import hexlet.code.games.GCD;
+import hexlet.code.games.Progression;
+import hexlet.code.games.Prime;
 
 import java.util.Scanner;
 
 public class App {
-    protected static String username;
+    public static final int FIRST_OPTION = 1;
+    public static final int SECOND_OPTION = 2;
+    public static final int THIRD_OPTION = 3;
+    public static final int FOURTH_OPTION = 4;
+    public static final int FIFTH_OPTION = 5;
+    public static final int SIXTH_OPTION = 6;
+    public static final int ZERO_OPTION = 0;
     public static void main(String[] args) {
         drawMenu();
     }
@@ -13,13 +23,25 @@ public class App {
     private static void drawMenu() {
         int userChoice = chooseMenuOption();
         switch (userChoice) {
-            case 1:
+            case FIRST_OPTION:
                 Cli.greeting();
                 break;
-            case 2, 3, 4, 5, 6:
-                setupGameStart(userChoice);
+            case SECOND_OPTION:
+                Even.startEvenGame();
                 break;
-            case 0:
+            case THIRD_OPTION:
+                Calc.startCalcGame();
+                break;
+            case FOURTH_OPTION:
+                GCD.startGCDGame();
+                break;
+            case FIFTH_OPTION:
+                Progression.startProgressionGame();
+                break;
+            case SIXTH_OPTION:
+                Prime.startPrimeGame();
+                break;
+            case ZERO_OPTION:
                 break;
             default:
                 System.out.println("Wrong menu option!");
@@ -27,30 +49,6 @@ public class App {
                 break;
         }
 
-    }
-
-    private static void setupGameStart(int choice) {
-        username = Cli.greeting();
-        switch (choice) {
-            case 2:
-                Even.startEvenGame();
-                break;
-            case 3:
-                Calc.startCalcGame();
-                break;
-            case 4:
-                GCD.startGCDGame();
-                break;
-            case 5:
-                Progression.startProgressionGame();
-                break;
-            case 6:
-                Prime.startPrimeGame();
-                break;
-            default:
-                System.out.println("Error in setupGameStart: choice " + choice);
-                break;
-        }
     }
 
     public static int chooseMenuOption() {

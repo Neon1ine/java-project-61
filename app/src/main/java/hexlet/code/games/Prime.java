@@ -1,13 +1,16 @@
 package hexlet.code.games;
 
+import hexlet.code.App;
+import hexlet.code.Cli;
 import hexlet.code.Engine;
 
 public class Prime {
     private static int number;
     private static final int PRIME_NUMBER_RANGE = 20;
     public static void startPrimeGame() {
+        Cli.greeting();
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-        Engine.startGame(6);
+        Engine.startGame(App.SIXTH_OPTION);
     }
 
     public static String generateRandomNumberAsQuestion() {

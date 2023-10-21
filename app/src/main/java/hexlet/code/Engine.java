@@ -1,6 +1,10 @@
 package hexlet.code;
 
-import hexlet.code.games.*;
+import hexlet.code.games.Even;
+import hexlet.code.games.Calc;
+import hexlet.code.games.GCD;
+import hexlet.code.games.Progression;
+import hexlet.code.games.Prime;
 
 import java.util.Scanner;
 
@@ -38,7 +42,7 @@ public class Engine {
         } else {
             output.append("Let's try again, ");
         }
-        output.append(App.username).append("!");
+        output.append(Cli.getUsername()).append("!");
         System.out.println(output);
     }
 
@@ -63,15 +67,15 @@ public class Engine {
 
     private static String createQuestion(int gameId) {
         switch (gameId) {
-            case 2:
+            case App.SECOND_OPTION:
                 return Even.generateRandomNumberAsQuestion();
-            case 3:
+            case App.THIRD_OPTION:
                 return Calc.generateRandomOperation();
-            case 4:
+            case App.FOURTH_OPTION:
                 return GCD.generate2Numbers();
-            case 5:
+            case App.FIFTH_OPTION:
                 return Progression.generateProgression();
-            case 6:
+            case App.SIXTH_OPTION:
                 return Prime.generateRandomNumberAsQuestion();
             default:
                 System.out.println("Error in defineQuestion: wrong gameId - " + gameId);
@@ -89,15 +93,15 @@ public class Engine {
 
     private static String defineCorrectAnswer(int gameId) {
         switch (gameId) {
-            case 2:
+            case App.SECOND_OPTION:
                 return Even.isEven();
-            case 3:
+            case App.THIRD_OPTION:
                 return Calc.getAnswer();
-            case 4:
+            case App.FOURTH_OPTION:
                 return GCD.findGCD();
-            case 5:
+            case App.FIFTH_OPTION:
                 return Progression.getMissingNumber();
-            case 6:
+            case App.SIXTH_OPTION:
                 return Prime.isPrime();
             default:
                 System.out.println("Error in defineCorrectAnswer: wrong gameId - " + gameId);
