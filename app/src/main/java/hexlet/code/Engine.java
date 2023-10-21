@@ -1,15 +1,20 @@
 package hexlet.code;
 
-import hexlet.code.games.Even;
-import hexlet.code.games.Calc;
-import hexlet.code.games.GCD;
-import hexlet.code.games.Progression;
+import hexlet.code.games.*;
 
 import java.util.Scanner;
 
 public class Engine {
     private static final int LEVELS_TO_BEAT_THE_GAME = 3;
     private static final int RANDOM_GENERATOR_RANGE = 100;
+
+    public static int generateRandomNumberInRange(int first, int last) {
+        return (int) (first + Math.random() * last);
+    }
+
+    public static int generateRandomNumber() {
+        return (int) (Math.random() * RANDOM_GENERATOR_RANGE);
+    }
 
     public static void startGame(int gameId) {
         boolean isCorrect;
@@ -48,7 +53,8 @@ public class Engine {
             return true;
         } else {
             StringBuilder output = new StringBuilder();
-            output.append("'").append(userAnswer).append("'  is wrong answer ;(. Correct answer was '")
+            output.append("'").append(userAnswer)
+                    .append("'  is wrong answer ;(. Correct answer was '")
                     .append(correctAnswer).append("'");
             System.out.println(output);
             return false;
@@ -65,19 +71,13 @@ public class Engine {
                 return GCD.generate2Numbers();
             case 5:
                 return Progression.generateProgression();
+            case 6:
+                return Prime.generateRandomNumberAsQuestion();
             default:
                 System.out.println("Error in defineQuestion: wrong gameId - " + gameId);
                 return null;
 
         }
-    }
-
-    public static int generateRandomNumberInRange(int first, int last) {
-        return (int) (first + Math.random() * last);
-    }
-
-    public static int generateRandomNumber() {
-        return (int) (Math.random() * RANDOM_GENERATOR_RANGE);
     }
 
     private static String askUserForAnswer(String question) {
@@ -90,13 +90,15 @@ public class Engine {
     private static String defineCorrectAnswer(int gameId) {
         switch (gameId) {
             case 2:
-                return Even.getIsEven();
+                return Even.isEven();
             case 3:
                 return Calc.getAnswer();
             case 4:
                 return GCD.findGCD();
             case 5:
                 return Progression.getMissingNumber();
+            case 6:
+                return Prime.isPrime();
             default:
                 System.out.println("Error in defineCorrectAnswer: wrong gameId - " + gameId);
                 return null;

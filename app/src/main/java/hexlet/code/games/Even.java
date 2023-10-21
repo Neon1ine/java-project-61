@@ -9,7 +9,7 @@ public class Even {
         Engine.startGame(2);
     }
 
-    public static String getIsEven() {
+    public static String isEven() {
         return (number % 2 == 0) ? "yes" : "no";
     }
 
