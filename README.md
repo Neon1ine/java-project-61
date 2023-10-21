@@ -9,3 +9,7 @@ https://asciinema.org/a/s2kWq1DDIcidOcT0CvrI9Szzs
 
 recording of calculator game:
 https://asciinema.org/a/6eFRQB4PJXYUsmZWZj8DLoB6G
+
+recording of GCD game:
+https://asciinema.org/a/ifcH0hoexH7l28Mcr8ZA8wbjU
+
