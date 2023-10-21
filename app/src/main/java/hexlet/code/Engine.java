@@ -34,7 +34,7 @@ public class Engine {
     private static void endOfAGame(boolean isWin) {
         StringBuilder output = new StringBuilder();
         if (isWin) {
-            output.append("Congratulations ");
+            output.append("Congratulations, ");
         } else {
             output.append("Let's try again, ");
         }
