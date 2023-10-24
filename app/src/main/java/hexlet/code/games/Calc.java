@@ -3,7 +3,7 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Menu;
 
-public class Calc implements Game {
+public final class Calc implements Game {
     private static final int THREE_OPERATIONS = 3;
     private static String sign;
     private static int answer;

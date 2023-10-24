@@ -2,7 +2,7 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
-public class GCD implements Game {
+public final class GCD implements Game {
     private static int first;
     private static int second;
     private static final String INVITE = "Find the greatest common divisor of given numbers.";

@@ -2,7 +2,7 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
-public class Progression implements Game {
+public final class Progression implements Game {
     private static final int PROGRESSION_LENGTH_RANGE = 10;
     private static final int PROGRESSION_LENGTH_MIN_VALUE = 5;
     private static final int PROGRESSION_STEP_RANGE = 10;

@@ -2,7 +2,7 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
-public class Prime implements Game {
+public final class Prime implements Game {
     private static int number;
     private static final int PRIME_NUMBER_RANGE = 20;
     private static final String INVITE = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
