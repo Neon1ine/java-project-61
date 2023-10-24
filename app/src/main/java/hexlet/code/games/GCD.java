@@ -1,8 +1,8 @@
 package hexlet.code.games;
 
-import hexlet.code.App;
 import hexlet.code.Cli;
 import hexlet.code.Engine;
+import hexlet.code.Menu;
 
 public class GCD {
     private static int first;
@@ -10,7 +10,7 @@ public class GCD {
     public static void startGCDGame() {
         Cli.greeting();
         System.out.println("Find the greatest common divisor of given numbers.");
-        Engine.startGame(App.FOURTH_OPTION);
+        Engine.startGame(Menu.FOURTH_OPTION);
     }
 
     public static String findGCD() {

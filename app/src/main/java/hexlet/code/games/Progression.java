@@ -1,8 +1,8 @@
 package hexlet.code.games;
 
-import hexlet.code.App;
 import hexlet.code.Cli;
 import hexlet.code.Engine;
+import hexlet.code.Menu;
 
 public class Progression {
     private static final int PROGRESSION_LENGTH_RANGE = 10;
@@ -14,7 +14,7 @@ public class Progression {
     public static void startProgressionGame() {
         Cli.greeting();
         System.out.println("What number is missing in the progression?");
-        Engine.startGame(App.FIFTH_OPTION);
+        Engine.startGame(Menu.FIFTH_OPTION);
     }
 
     public static String generateProgression() {

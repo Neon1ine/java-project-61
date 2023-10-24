@@ -67,15 +67,15 @@ public class Engine {
 
     private static String createQuestion(int gameId) {
         switch (gameId) {
-            case App.SECOND_OPTION:
+            case Menu.SECOND_OPTION:
                 return Even.generateRandomNumberAsQuestion();
-            case App.THIRD_OPTION:
+            case Menu.THIRD_OPTION:
                 return Calc.generateRandomOperation();
-            case App.FOURTH_OPTION:
+            case Menu.FOURTH_OPTION:
                 return GCD.generate2Numbers();
-            case App.FIFTH_OPTION:
+            case Menu.FIFTH_OPTION:
                 return Progression.generateProgression();
-            case App.SIXTH_OPTION:
+            case Menu.SIXTH_OPTION:
                 return Prime.generateRandomNumberAsQuestion();
             default:
                 System.out.println("Error in defineQuestion: wrong gameId - " + gameId);
@@ -93,15 +93,15 @@ public class Engine {
 
     private static String defineCorrectAnswer(int gameId) {
         switch (gameId) {
-            case App.SECOND_OPTION:
+            case Menu.SECOND_OPTION:
                 return Even.isEven();
-            case App.THIRD_OPTION:
+            case Menu.THIRD_OPTION:
                 return Calc.getAnswer();
-            case App.FOURTH_OPTION:
+            case Menu.FOURTH_OPTION:
                 return GCD.findGCD();
-            case App.FIFTH_OPTION:
+            case Menu.FIFTH_OPTION:
                 return Progression.getMissingNumber();
-            case App.SIXTH_OPTION:
+            case Menu.SIXTH_OPTION:
                 return Prime.isPrime();
             default:
                 System.out.println("Error in defineCorrectAnswer: wrong gameId - " + gameId);

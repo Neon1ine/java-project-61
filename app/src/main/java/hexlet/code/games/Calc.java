@@ -1,8 +1,8 @@
 package hexlet.code.games;
 
-import hexlet.code.App;
 import hexlet.code.Cli;
 import hexlet.code.Engine;
+import hexlet.code.Menu;
 
 public class Calc {
     private static final int THREE_OPERATIONS = 3;
@@ -12,7 +12,7 @@ public class Calc {
     public static void startCalcGame() {
         Cli.greeting();
         System.out.println("What is the result of the expression?");
-        Engine.startGame(App.THIRD_OPTION);
+        Engine.startGame(Menu.THIRD_OPTION);
     }
 
     public static String generateRandomOperation() {
@@ -22,15 +22,15 @@ public class Calc {
         StringBuilder output = new StringBuilder();
         output.append(first).append(" ");
         switch (operationIndex) {
-            case App.ZERO_OPTION:
+            case Menu.ZERO_OPTION:
                 sign = "*";
                 answer = first * second;
                 break;
-            case App.FIRST_OPTION:
+            case Menu.FIRST_OPTION:
                 sign = "+";
                 answer = first + second;
                 break;
-            case App.SECOND_OPTION:
+            case Menu.SECOND_OPTION:
                 sign = "-";
                 answer = first - second;
                 break;

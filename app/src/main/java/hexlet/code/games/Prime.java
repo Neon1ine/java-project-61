@@ -1,8 +1,8 @@
 package hexlet.code.games;
 
-import hexlet.code.App;
 import hexlet.code.Cli;
 import hexlet.code.Engine;
+import hexlet.code.Menu;
 
 public class Prime {
     private static int number;
@@ -10,7 +10,7 @@ public class Prime {
     public static void startPrimeGame() {
         Cli.greeting();
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-        Engine.startGame(App.SIXTH_OPTION);
+        Engine.startGame(Menu.SIXTH_OPTION);
     }
 
     public static String generateRandomNumberAsQuestion() {
