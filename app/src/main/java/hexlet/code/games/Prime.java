@@ -21,6 +21,9 @@ public final class Prime implements Game {
     }
 
     public String defineCorrectAnswer() {
+        if (number == 1) {
+            return "yes";
+        }
         for (int i = 2; i < number; i++) {
             if (number % i == 0) {
                 return "no";
