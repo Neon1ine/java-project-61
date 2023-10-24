@@ -1,6 +1,5 @@
 package hexlet.code.games;
 
-import hexlet.code.Cli;
 import hexlet.code.Engine;
 import hexlet.code.Menu;
 
@@ -8,10 +7,9 @@ public class Calc {
     private static final int THREE_OPERATIONS = 3;
     private static String sign;
     private static int answer;
+    private static final String invite = "What is the result of the expression?";
 
-    public static void startCalcGame() {
-        Cli.greeting();
-        System.out.println("What is the result of the expression?");
+    public static void start() {
         Engine.startGame(Menu.THIRD_OPTION);
     }
 
@@ -45,5 +43,9 @@ public class Calc {
 
     public static String getAnswer() {
         return String.valueOf(answer);
+    }
+
+    public static String getInvite() {
+        return invite;
     }
 }

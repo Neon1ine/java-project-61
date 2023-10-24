@@ -1,6 +1,5 @@
 package hexlet.code.games;
 
-import hexlet.code.Cli;
 import hexlet.code.Engine;
 import hexlet.code.Menu;
 
@@ -10,10 +9,9 @@ public class Progression {
     private static final int PROGRESSION_STEP_RANGE = 10;
     private static final int PROGRESSION_STEP_MIN_VALUE = 2;
     private static int missingNumber;
+    private static final String invite = "What number is missing in the progression?";
 
-    public static void startProgressionGame() {
-        Cli.greeting();
-        System.out.println("What number is missing in the progression?");
+    public static void start() {
         Engine.startGame(Menu.FIFTH_OPTION);
     }
 
@@ -46,5 +44,9 @@ public class Progression {
 
     public static String getMissingNumber() {
         return String.valueOf(missingNumber);
+    }
+
+    public static String getInvite() {
+        return invite;
     }
 }

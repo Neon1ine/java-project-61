@@ -21,28 +21,54 @@ public class Engine {
     }
 
     public static void startGame(int gameId) {
+        String username = Cli.greeting();
+        printInviteMassage(gameId);
         boolean isCorrect;
         for (int level = 1; level <= LEVELS_TO_BEAT_THE_GAME; level++) {
             isCorrect = oneRoundOfGame(gameId, level);
             if (!isCorrect) {
-                endOfAGame(false);
+                endOfAGame(username, false);
                 break;
             }
             if (level == LEVELS_TO_BEAT_THE_GAME) {
-                endOfAGame(true);
+                endOfAGame(username, true);
                 break;
             }
         }
     }
 
-    private static void endOfAGame(boolean isWin) {
+    private static void printInviteMassage(int gameId) {
+        StringBuilder output = new StringBuilder();
+        switch (gameId) {
+            case Menu.SECOND_OPTION:
+                output.append(Even.getInvite());
+                break;
+            case Menu.THIRD_OPTION:
+                output.append(Calc.getInvite());
+                break;
+            case Menu.FOURTH_OPTION:
+                output.append(GCD.getInvite());
+                break;
+            case Menu.FIFTH_OPTION:
+                output.append(Progression.getInvite());
+                break;
+            case Menu.SIXTH_OPTION:
+                output.append(Prime.getInvite());
+                break;
+            default:
+                System.out.println("Error in printInviteMassage: wrong gameId - " + gameId);
+        }
+        System.out.println(output);
+    }
+
+    private static void endOfAGame(String username, boolean isWin) {
         StringBuilder output = new StringBuilder();
         if (isWin) {
             output.append("Congratulations, ");
         } else {
             output.append("Let's try again, ");
         }
-        output.append(Cli.getUsername()).append("!");
+        output.append(username).append("!");
         System.out.println(output);
     }
 
@@ -80,7 +106,6 @@ public class Engine {
             default:
                 System.out.println("Error in defineQuestion: wrong gameId - " + gameId);
                 return null;
-
         }
     }
 

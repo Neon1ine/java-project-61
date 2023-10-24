@@ -36,25 +36,24 @@ public class Menu {
                 Cli.greeting();
                 break;
             case SECOND_OPTION:
-                Even.startEvenGame();
+                Even.start();
                 break;
             case THIRD_OPTION:
-                Calc.startCalcGame();
+                Calc.start();
                 break;
             case FOURTH_OPTION:
-                GCD.startGCDGame();
+                GCD.start();
                 break;
             case FIFTH_OPTION:
-                Progression.startProgressionGame();
+                Progression.start();
                 break;
             case SIXTH_OPTION:
-                Prime.startPrimeGame();
+                Prime.start();
                 break;
             case ZERO_OPTION:
                 break;
             default:
                 System.out.println("Wrong menu option!");
-                drawMenu();
                 break;
         }
     }
