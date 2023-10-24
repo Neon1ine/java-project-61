@@ -36,19 +36,19 @@ public class Menu {
                 Cli.greeting();
                 break;
             case SECOND_OPTION:
-                Even.start();
+                new Even();
                 break;
             case THIRD_OPTION:
-                Calc.start();
+                new Calc();
                 break;
             case FOURTH_OPTION:
-                GCD.start();
+                new GCD();
                 break;
             case FIFTH_OPTION:
-                Progression.start();
+                new Progression();
                 break;
             case SIXTH_OPTION:
-                Prime.start();
+                new Prime();
                 break;
             case ZERO_OPTION:
                 break;

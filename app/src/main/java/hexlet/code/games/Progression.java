@@ -1,21 +1,24 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import hexlet.code.Menu;
 
-public class Progression {
+public class Progression implements Game {
     private static final int PROGRESSION_LENGTH_RANGE = 10;
     private static final int PROGRESSION_LENGTH_MIN_VALUE = 5;
     private static final int PROGRESSION_STEP_RANGE = 10;
     private static final int PROGRESSION_STEP_MIN_VALUE = 2;
     private static int missingNumber;
-    private static final String invite = "What number is missing in the progression?";
+    private static final String INVITE = "What number is missing in the progression?";
 
-    public static void start() {
-        Engine.startGame(Menu.FIFTH_OPTION);
+    public Progression() {
+        Engine.startGame(this);
     }
 
-    public static String generateProgression() {
+    public String getInvite() {
+        return INVITE;
+    }
+
+    public String createQuestion() {
         int[] fullProgression = new int[PROGRESSION_LENGTH_MIN_VALUE
                 + Engine.generateRandomNumberInRange(0, PROGRESSION_LENGTH_RANGE)];
         int step = Engine.generateRandomNumberInRange(PROGRESSION_STEP_MIN_VALUE, PROGRESSION_STEP_RANGE);
@@ -30,7 +33,11 @@ public class Progression {
         return String.valueOf(output);
     }
 
-    private static String castProgressionIntoString(int[] arr) {
+    public String defineCorrectAnswer() {
+        return String.valueOf(missingNumber);
+    }
+
+    private String castProgressionIntoString(int[] arr) {
         StringBuilder output = new StringBuilder();
         for (int element : arr) {
             if (element != missingNumber) {
@@ -40,13 +47,5 @@ public class Progression {
             }
         }
         return String.valueOf(output);
-    }
-
-    public static String getMissingNumber() {
-        return String.valueOf(missingNumber);
-    }
-
-    public static String getInvite() {
-        return invite;
     }
 }

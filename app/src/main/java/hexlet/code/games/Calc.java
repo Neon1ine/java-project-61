@@ -3,17 +3,21 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Menu;
 
-public class Calc {
+public class Calc implements Game {
     private static final int THREE_OPERATIONS = 3;
     private static String sign;
     private static int answer;
-    private static final String invite = "What is the result of the expression?";
+    private static final String INVITE = "What is the result of the expression?";
 
-    public static void start() {
-        Engine.startGame(Menu.THIRD_OPTION);
+    public Calc() {
+        Engine.startGame(this);
     }
 
-    public static String generateRandomOperation() {
+    public String getInvite() {
+        return INVITE;
+    }
+
+    public String createQuestion() {
         int operationIndex = (int) (Math.random() * THREE_OPERATIONS);
         int first = Engine.generateRandomNumber();
         int second = Engine.generateRandomNumber();
@@ -41,11 +45,7 @@ public class Calc {
         return String.valueOf(output);
     }
 
-    public static String getAnswer() {
+    public String defineCorrectAnswer() {
         return String.valueOf(answer);
-    }
-
-    public static String getInvite() {
-        return invite;
     }
 }

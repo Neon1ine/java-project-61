@@ -1,26 +1,26 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import hexlet.code.Menu;
 
-public class Even {
+public class Even implements Game {
     private static int number;
-    private static final String invite = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+    private static final String INVITE = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
-    public static void start() {
-        Engine.startGame(Menu.SECOND_OPTION);
+    public Even() {
+        Engine.startGame(this);
     }
 
-    public static String isEven() {
-        return (number % 2 == 0) ? "yes" : "no";
+    public String getInvite() {
+        return INVITE;
     }
 
-    public static String generateRandomNumberAsQuestion() {
+    public String createQuestion() {
         number = Engine.generateRandomNumber();
         return String.valueOf(number);
     }
 
-    public static String getInvite() {
-        return invite;
+    public String defineCorrectAnswer() {
+        return (number % 2 == 0) ? "yes" : "no";
     }
+
 }

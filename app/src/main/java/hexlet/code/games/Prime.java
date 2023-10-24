@@ -1,31 +1,31 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import hexlet.code.Menu;
 
-public class Prime {
+public class Prime implements Game {
     private static int number;
     private static final int PRIME_NUMBER_RANGE = 20;
-    private static final String invite = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-    public static void start() {
-        Engine.startGame(Menu.SIXTH_OPTION);
+    private static final String INVITE = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+
+    public Prime() {
+        Engine.startGame(this);
     }
 
-    public static String generateRandomNumberAsQuestion() {
+    public String getInvite() {
+        return INVITE;
+    }
+
+    public String createQuestion() {
         number = Engine.generateRandomNumberInRange(1, PRIME_NUMBER_RANGE);
         return String.valueOf(number);
     }
 
-    public static String isPrime() {
+    public String defineCorrectAnswer() {
         for (int i = 2; i < number; i++) {
             if (number % i == 0) {
                 return "no";
             }
         }
         return "yes";
-    }
-
-    public static String getInvite() {
-        return invite;
     }
 }
