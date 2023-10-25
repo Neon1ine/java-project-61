@@ -11,15 +11,18 @@ public final class Prime implements Game {
         Engine.startGame(this);
     }
 
+    @Override
     public String getInvite() {
         return INVITE;
     }
 
+    @Override
     public String createQuestion() {
         number = Engine.generateRandomNumberInRange(1, PRIME_NUMBER_RANGE);
         return String.valueOf(number);
     }
 
+    @Override
     public String defineCorrectAnswer() {
         if (number == 1) {
             return "no";

@@ -10,15 +10,18 @@ public final class Even implements Game {
         Engine.startGame(this);
     }
 
+    @Override
     public String getInvite() {
         return INVITE;
     }
 
+    @Override
     public String createQuestion() {
         number = Engine.generateRandomNumber();
         return String.valueOf(number);
     }
 
+    @Override
     public String defineCorrectAnswer() {
         return (number % 2 == 0) ? "yes" : "no";
     }

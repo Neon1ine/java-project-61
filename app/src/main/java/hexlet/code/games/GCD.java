@@ -11,16 +11,19 @@ public final class GCD implements Game {
         Engine.startGame(this);
     }
 
+    @Override
     public String getInvite() {
         return INVITE;
     }
 
+    @Override
     public String createQuestion() {
         first = Engine.generateRandomNumber();
         second = Engine.generateRandomNumber();
         return first + " " + second;
     }
 
+    @Override
     public String defineCorrectAnswer() {
         while (first != second) {
             if (first > second) {

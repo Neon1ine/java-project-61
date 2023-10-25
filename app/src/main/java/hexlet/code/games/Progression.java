@@ -14,10 +14,12 @@ public final class Progression implements Game {
         Engine.startGame(this);
     }
 
+    @Override
     public String getInvite() {
         return INVITE;
     }
 
+    @Override
     public String createQuestion() {
         int[] fullProgression = new int[PROGRESSION_LENGTH_MIN_VALUE
                 + Engine.generateRandomNumberInRange(0, PROGRESSION_LENGTH_RANGE)];
@@ -33,6 +35,7 @@ public final class Progression implements Game {
         return String.valueOf(output);
     }
 
+    @Override
     public String defineCorrectAnswer() {
         return String.valueOf(missingNumber);
     }

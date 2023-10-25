@@ -35,8 +35,8 @@ public class Engine {
                 }
             } else {
                 output.append("'").append(userAnswer)
-                        .append("'  is wrong answer ;(. Correct answer was '")
-                        .append(correctAnswer).append("'").append("Let's try again, ")
+                        .append("' is wrong answer ;(. Correct answer was '")
+                        .append(correctAnswer).append("'").append("\nLet's try again, ")
                         .append(username).append("!");
                 System.out.println(output);
                 break;

@@ -13,10 +13,12 @@ public final class Calc implements Game {
         Engine.startGame(this);
     }
 
+    @Override
     public String getInvite() {
         return INVITE;
     }
 
+    @Override
     public String createQuestion() {
         int operationIndex = (int) (Math.random() * THREE_OPERATIONS);
         int first = Engine.generateRandomNumber();
@@ -45,6 +47,7 @@ public final class Calc implements Game {
         return String.valueOf(output);
     }
 
+    @Override
     public String defineCorrectAnswer() {
         return String.valueOf(answer);
     }
