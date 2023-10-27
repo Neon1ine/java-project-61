@@ -36,6 +36,6 @@ public final class Calc implements Game {
                 break;
         }
         output.append(OPERATIONS[operationIndex]).append(" ").append(second);
-        return new String[]{String.valueOf(output) , String.valueOf(answer)};
+        return new String[]{String.valueOf(output), String.valueOf(answer)};
     }
 }
