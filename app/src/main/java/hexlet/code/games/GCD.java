@@ -15,7 +15,9 @@ public final class GCD implements Game {
         int first = Utils.getRandomNumber();
         int second = Utils.getRandomNumber();
         String[] result = new String[DATA_SIZE];
-        result[0] = first + " " + second;
+        StringBuilder output = new StringBuilder();
+        output.append(first).append(" ").append(second);
+        result[0] = String.valueOf(output);
         result[1] = String.valueOf(findGCD(first, second));
         return result;
     }
