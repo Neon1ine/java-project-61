@@ -1,10 +1,11 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import hexlet.code.Menu;
 
 public final class Calc implements Game {
-    private static final int THREE_OPERATIONS = 3;
+    private static final int OPERATION_MULTIPLICATION = 0;
+    private static final int OPERATION_PLUS = 1;
+    private static final int FINAL_OPERATION_MINIS = 2;
     private static String sign;
     private static int answer;
     private static final String INVITE = "What is the result of the expression?";
@@ -13,26 +14,26 @@ public final class Calc implements Game {
         Engine.startGame(this);
     }
 
-    public String getInvite() {
+    public String getRules() {
         return INVITE;
     }
 
     public String createQuestion() {
-        int operationIndex = (int) (Math.random() * THREE_OPERATIONS);
+        int operationIndex = (int) (Math.random() * FINAL_OPERATION_MINIS + 1);
         int first = Engine.generateRandomNumber();
         int second = Engine.generateRandomNumber();
         StringBuilder output = new StringBuilder();
         output.append(first).append(" ");
         switch (operationIndex) {
-            case Menu.ZERO_OPTION:
+            case OPERATION_MULTIPLICATION:
                 sign = "*";
                 answer = first * second;
                 break;
-            case Menu.FIRST_OPTION:
+            case OPERATION_PLUS:
                 sign = "+";
                 answer = first + second;
                 break;
-            case Menu.SECOND_OPTION:
+            case FINAL_OPERATION_MINIS:
                 sign = "-";
                 answer = first - second;
                 break;

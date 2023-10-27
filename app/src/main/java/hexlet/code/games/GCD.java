@@ -11,7 +11,7 @@ public final class GCD implements Game {
         Engine.startGame(this);
     }
 
-    public String getInvite() {
+    public String getRules() {
         return INVITE;
     }
 

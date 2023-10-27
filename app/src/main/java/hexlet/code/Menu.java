@@ -10,13 +10,13 @@ import java.util.Scanner;
 
 public class Menu {
 
-    public static final int FIRST_OPTION = 1;
-    public static final int SECOND_OPTION = 2;
-    public static final int THIRD_OPTION = 3;
-    public static final int FOURTH_OPTION = 4;
-    public static final int FIFTH_OPTION = 5;
-    public static final int SIXTH_OPTION = 6;
-    public static final int ZERO_OPTION = 0;
+    public static final int GREET_OPTION = 1;
+    public static final int EVEN_GAME_OPTION = 2;
+    public static final int CALC_GAME_OPTION = 3;
+    public static final int GCD_GAME_OPTION = 4;
+    public static final int PROGRESS_GAME_OPTION = 5;
+    public static final int PRIME_GAME_OPTION = 6;
+    public static final int EXIT_OPTION = 0;
 
     public static void drawMenu() {
         System.out.print("""
@@ -32,25 +32,25 @@ public class Menu {
         Scanner scanner = new Scanner(System.in);
         int userChoice = scanner.nextInt();
         switch (userChoice) {
-            case FIRST_OPTION:
+            case GREET_OPTION:
                 Cli.greeting();
                 break;
-            case SECOND_OPTION:
+            case EVEN_GAME_OPTION:
                 new Even();
                 break;
-            case THIRD_OPTION:
+            case CALC_GAME_OPTION:
                 new Calc();
                 break;
-            case FOURTH_OPTION:
+            case GCD_GAME_OPTION:
                 new GCD();
                 break;
-            case FIFTH_OPTION:
+            case PROGRESS_GAME_OPTION:
                 new Progression();
                 break;
-            case SIXTH_OPTION:
+            case PRIME_GAME_OPTION:
                 new Prime();
                 break;
-            case ZERO_OPTION:
+            case EXIT_OPTION:
                 break;
             default:
                 System.out.println("Wrong menu option!");

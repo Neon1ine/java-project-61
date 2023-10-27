@@ -17,7 +17,7 @@ public class Engine {
 
     public static void startGame(Game game) {
         String username = Cli.greeting();
-        System.out.println(game.getInvite());
+        System.out.println(game.getRules());
         for (int level = 1; level <= LEVELS_TO_BEAT_THE_GAME; level++) {
             String question = game.createQuestion();
             System.out.println("Question: " + question);
