@@ -5,28 +5,18 @@ import hexlet.code.games.Game;
 
 public class Engine {
     private static final int LEVELS_TO_BEAT_THE_GAME = 3;
-    private static final int RANDOM_GENERATOR_RANGE = 100;
-
-    public static int generateRandomNumberInRange(int first, int last) {
-        return (int) (first + Math.random() * last);
-    }
-
-    public static int generateRandomNumber() {
-        return (int) (Math.random() * RANDOM_GENERATOR_RANGE);
-    }
 
     public static void startGame(Game game) {
         String username = Cli.greeting();
         System.out.println(game.getRules());
         for (int level = 1; level <= LEVELS_TO_BEAT_THE_GAME; level++) {
-            String question = game.createQuestion();
-            System.out.println("Question: " + question);
+            String[] gameQuestionAnswer = game.createQuestionFindAnswer();
+            System.out.println("Question: " + gameQuestionAnswer[0]);
             Scanner scanner = new Scanner(System.in);
             System.out.print("Your answer: ");
             String userAnswer = scanner.nextLine();
-            String correctAnswer = game.defineCorrectAnswer();
             StringBuilder output = new StringBuilder();
-            if (userAnswer.equals(correctAnswer)) {
+            if (userAnswer.equals(gameQuestionAnswer[1])) {
                 //if it's not the last level
                 if (level != LEVELS_TO_BEAT_THE_GAME) {
                     output.append("Correct!");
@@ -36,7 +26,7 @@ public class Engine {
             } else {
                 output.append("'").append(userAnswer)
                         .append("'  is wrong answer ;(. Correct answer was '")
-                        .append(correctAnswer).append("'").append("Let's try again, ")
+                        .append(gameQuestionAnswer[1]).append("'").append("\nLet's try again, ")
                         .append(username).append("!");
                 System.out.println(output);
                 break;
