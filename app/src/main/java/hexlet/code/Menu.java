@@ -36,19 +36,19 @@ public class Menu {
                 Cli.greeting();
                 break;
             case EVEN_GAME_OPTION:
-                new Even();
+                Engine.startGame(new Even());
                 break;
             case CALC_GAME_OPTION:
-                new Calc();
+                Engine.startGame(new Calc());
                 break;
             case GCD_GAME_OPTION:
-                new GCD();
+                Engine.startGame(new GCD());
                 break;
             case PROGRESS_GAME_OPTION:
-                new Progression();
+                Engine.startGame(new Progression());
                 break;
             case PRIME_GAME_OPTION:
-                new Prime();
+                Engine.startGame(new Prime());
                 break;
             case EXIT_OPTION:
                 break;

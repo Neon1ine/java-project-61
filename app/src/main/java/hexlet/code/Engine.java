@@ -10,13 +10,13 @@ public class Engine {
         String username = Cli.greeting();
         System.out.println(game.getRules());
         for (int level = 1; level <= LEVELS_TO_BEAT_THE_GAME; level++) {
-            String[] gameQuestionAnswer = game.createQuestionFindAnswer();
-            System.out.println("Question: " + gameQuestionAnswer[0]);
+            String[] gameData = game.getData();
+            System.out.println("Question: " + gameData[0]);
             Scanner scanner = new Scanner(System.in);
             System.out.print("Your answer: ");
             String userAnswer = scanner.nextLine();
             StringBuilder output = new StringBuilder();
-            if (userAnswer.equals(gameQuestionAnswer[1])) {
+            if (userAnswer.equals(gameData[1])) {
                 //if it's not the last level
                 if (level != LEVELS_TO_BEAT_THE_GAME) {
                     output.append("Correct!");
@@ -26,7 +26,7 @@ public class Engine {
             } else {
                 output.append("'").append(userAnswer)
                         .append("'  is wrong answer ;(. Correct answer was '")
-                        .append(gameQuestionAnswer[1]).append("'").append("\nLet's try again, ")
+                        .append(gameData[1]).append("'").append("\nLet's try again, ")
                         .append(username).append("!");
                 System.out.println(output);
                 break;
